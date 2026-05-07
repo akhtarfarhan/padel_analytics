@@ -1,5 +1,5 @@
 import cv2
-from src.config import INPUT_VIDEO_PATH, OUTPUT_VIDEO_PATH, YOLO_MODEL_PATH, CONFIDENCE_THRESHOLD
+from src.config import INPUT_VIDEO_PATH, OUTPUT_VIDEO_PATH, YOLO_MODEL_PATH, CONFIDENCE_THRESHOLD, INFERENCE_SIZE
 from src.detector import YOLOv8Detector
 from src.video_utils import create_video_writer
 
@@ -24,10 +24,10 @@ def main():
             break # End of video
             
         # 1. Run detection
-        results = detector.detect(frame, conf_threshold=CONFIDENCE_THRESHOLD)
+        # Pass the new INFERENCE_SIZE to the detector
+        results = detector.detect(frame, conf_threshold=CONFIDENCE_THRESHOLD, imgsz=INFERENCE_SIZE)
         
-        # 2. Draw bounding boxes
-        # Ultralytics provides a handy plot() method to draw the boxes for us quickly
+        # Draw the base skeletons
         annotated_frame = results.plot()
         
         # 3. Save the frame to our output video

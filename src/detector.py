@@ -2,22 +2,24 @@ from ultralytics import YOLO
 
 class YOLOv8Detector:
     def __init__(self, model_path):
-        """Initializes the YOLOv8 model."""
-        # This will automatically download the model weights the first time it runs
         self.model = YOLO(model_path)
-        
-        # COCO Dataset class IDs:
-        # 0: person
-        # 32: sports ball
-        # 38: tennis racket (we'll use this to detect the padel racket)
-        self.target_classes = [0, 32, 38]
+        self.target_classes = [0] 
 
-    def detect(self, frame, conf_threshold=0.3):
+    def detect(self, frame, conf_threshold=0.25, imgsz=1280):
         """
-        Runs inference on a single frame.
-        We keep confidence a bit lower (0.3) because the ball moves fast and blurs.
+        Runs tracking inference on a single frame.
+        We swapped .predict() / () for .track() to maintain temporal consistency.
         """
-        # verbose=False keeps our terminal clean from YOLO's default printing
-        results = self.model(frame, classes=self.target_classes, conf=conf_threshold, verbose=False)
-        
-        return results[0] # Return the first (and only) frame's results
+        # Notice we changed self.model(...) to self.model.track(...)
+        # persist=True tells it to remember the previous frames
+        # tracker="botsort.yaml" is a highly accurate tracking algorithm included in YOLO
+        results = self.model.track(
+            frame, 
+            persist=True, 
+            tracker="botsort.yaml", 
+            classes=self.target_classes, 
+            conf=conf_threshold, 
+            imgsz=imgsz, 
+            verbose=False
+        )
+        return results[0]
