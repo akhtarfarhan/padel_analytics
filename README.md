@@ -1,6 +1,6 @@
 # Padel Game Analytics — Shot Classification System
 
-**Candidate:** Tsewang Gurung (BSc Computing with Artificial Intelligence, Islington College)  
+**Candidate:** MD Farhan Akhtar
 **Applying for:** AI/ML Internship (Computer Vision & R&D Track) at Layman AI  
 
 ## 🎯 Objective
@@ -14,7 +14,7 @@ A prototype computer vision pipeline designed to analyze padel gameplay footage.
 ---
 
 ## 🛠️ Tech Stack & Architecture
-* **Language:** Python 3.x
+* **Language:** Python 3.10 or more updated version
 * **Computer Vision:** OpenCV (Video processing, frame annotation)
 * **Deep Learning / AI:** Ultralytics YOLOv8 (`yolov8n-pose.pt` for joint detection)
 * **Object Tracking:** BoT-SORT (Built-in Ultralytics tracker for temporal consistency)
@@ -24,7 +24,7 @@ A prototype computer vision pipeline designed to analyze padel gameplay footage.
 
 ## 🧠 Methodology & Engineering Decisions
 
-As requested, this project prioritizes a practical, working prototype and clear problem-solving over building a heavily resource-intensive, perfect custom model from scratch.
+This project prioritizes a practical, working prototype and clear problem-solving over building a heavily resource-intensive, perfect custom model from scratch.
 
 ### 1. The Pivot: Object Detection to Pose Estimation
 Initially, I considered using standard object detection to track the ball, racket, and players. However, standard COCO-trained models struggle to identify solid padel rackets (they are trained on striped tennis rackets).
