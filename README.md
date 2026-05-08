@@ -1,8 +1,5 @@
 # Padel Game Analytics — Shot Classification System
 
-**Candidate:** MD Farhan Akhtar
-**Applying for:** AI/ML Internship (Computer Vision & R&D Track) at Layman AI  
-
 ## 🎯 Objective
 A prototype computer vision pipeline designed to analyze padel gameplay footage. This system detects and tracks multiple players, extracts skeletal pose landmarks, and utilizes rule-based heuristics to classify shot types (forehand, backhand, etc.) in real-time.
 
