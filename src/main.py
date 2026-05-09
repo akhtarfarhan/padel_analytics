@@ -31,7 +31,10 @@ def main():
             
         # 1. Run tracking & pose detection
         results = detector.detect(frame, conf_threshold=CONFIDENCE_THRESHOLD, imgsz=INFERENCE_SIZE)
-        annotated_frame = results.plot()
+
+        # annotated_frame = results.plot()
+        # kpt_line=False and kpt_radius=0 turns off the skeleton drawing
+        annotated_frame = results.plot(kpt_line=False, kpt_radius=0)
         
         # 2. Extract Data for Classification
         # We must check if the tracker assigned IDs AND if pose keypoints exist
