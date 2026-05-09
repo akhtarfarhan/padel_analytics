@@ -10,9 +10,6 @@ class YOLOv8Detector:
         Runs tracking inference on a single frame.
         We swapped .predict() / () for .track() to maintain temporal consistency.
         """
-        # Notice we changed self.model(...) to self.model.track(...)
-        # persist=True tells it to remember the previous frames
-        # tracker="botsort.yaml" is a highly accurate tracking algorithm included in YOLO
         results = self.model.track(
             frame, 
             persist=True, 
