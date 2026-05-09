@@ -4,9 +4,8 @@
 A prototype computer vision pipeline designed to analyze padel gameplay footage. This system detects and tracks multiple players, extracts skeletal pose landmarks, and utilizes rule-based heuristics to classify shot types (forehand, backhand, etc.) in real-time.
 
 ## 📦 Deliverables
-* **Short Demo Video:** [Insert Google Drive Link Here]
-* **Shot Analytics CSV:** [Insert Google Drive Link Here]
-* **YOLOv8 Pose Model:** [Insert Google Drive Link Here]
+* **Short Demo Video:** 
+* **Shot Analytics CSV:** 
 
 ---
 
